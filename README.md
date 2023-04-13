@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Projeto do Curso React: Lidando com arquivos estáticos (typescript)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Segundo curso da formação Gerencie aplicações React com Typescript da Alura
+
 
 ## Available Scripts
 
