@@ -4,11 +4,13 @@ import opcoes from './opcoes.json'
 import classNames from 'classnames';
 import {MdKeyboardArrowUp, MdKeyboardArrowDown} from 'react-icons/md'
 
+export type IOpcoesOrdenador = '' | 'porcao' | 'qtd_pessoas' | 'preco';
+
 type IOpcao = typeof opcoes[0];
 
 interface Props {
-    ordenador: string,
-    setOrdenador: React.Dispatch<React.SetStateAction<string>>
+    ordenador: IOpcoesOrdenador,
+    setOrdenador: React.Dispatch<React.SetStateAction<IOpcoesOrdenador>>
 }
 
 export default function Ordenador({ordenador, setOrdenador}: Props) {
@@ -34,8 +36,8 @@ export default function Ordenador({ordenador, setOrdenador}: Props) {
         setAberto(false)
     }
 
-    function handleOptionClick(opcao: IOpcao) {
-        setOrdenador(opcao.value)
+    function handleOptionClick(opcao: IOpcao ) {
+        setOrdenador(opcao.value as IOpcoesOrdenador)
     }
 
     return (

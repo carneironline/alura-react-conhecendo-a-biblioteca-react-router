@@ -4,13 +4,13 @@ import Buscador from "./Buscador";
 import Filtros from "./Filtros";
 
 import styles from "./Cardapio.module.scss";
-import Ordenador from "./Ordenador";
+import Ordenador, { IOpcoesOrdenador } from "./Ordenador";
 import Itens from "./Itens";
 
 export default function Cardapio() {
   const [busca, setBusca] = useState("");
   const [filtro, setFiltro] = useState<number | null>(null);
-  const [ordenador, setOrdenador] = useState('');
+  const [ordenador, setOrdenador] = useState<IOpcoesOrdenador>('');
   
   return (
     <main>
