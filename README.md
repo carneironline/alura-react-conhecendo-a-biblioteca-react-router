@@ -1,6 +1,6 @@
-# Projeto do Curso React: Lidando com arquivos estáticos (typescript)
+# Projeto do Curso React: conhecendo a biblioteca React Router (typescript)
 
-Segundo curso da formação Gerencie aplicações React com Typescript da Alura
+Terceiro curso da formação Gerencie aplicações React com Typescript da Alura
 
 
 ## Available Scripts
