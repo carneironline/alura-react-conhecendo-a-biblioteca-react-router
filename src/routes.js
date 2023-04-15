@@ -9,8 +9,8 @@ import Footer from 'components/Footer';
 
 export default function AppRouter() {
     return (
-        <Router>
-            <main>
+        <main className='container'>
+            <Router>
                 <Menu />
 
                 <Routes>
@@ -23,7 +23,7 @@ export default function AppRouter() {
                 </Routes>
 
                 <Footer />
-            </main>
-        </Router>
+            </Router>
+        </main>
     );
 }
