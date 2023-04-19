@@ -1,8 +1,9 @@
 import styles from './Prato.module.scss'; 
 import cardapio from 'data/cardapio.json';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import TagsPrato from 'components/TagsPrato';
 import NotFound from 'pages/NotFound';
+import Template from 'components/Template';
 
 export default function Prato() {
     const { id } = useParams();
@@ -12,28 +13,34 @@ export default function Prato() {
     if(!prato) return <NotFound />;
 
     return (
-        <>
-            <button className={styles.voltar} onClick={() => navigate(-1)}>
-                {'< Voltar'}
-            </button>
-
-            <section className={styles.container}>
-                <h1 className={styles.titulo}>
-                    {prato.title}
-                </h1>
-
-                <div className={styles.imagem}>
-                    <img src={prato.photo} alt={prato.title} />
-                </div>
-
-                <div className={styles.conteudo}>
-                    <p className={styles.conteudo__descricao}>
-                        {prato.description}
-                    </p>
-
-                    <TagsPrato {...prato} />
-                </div>
-            </section>
-        </>
+        <Routes>
+            <Route path='*' element={<Template />}>
+                <Route index element={
+                    <>
+                        <button className={styles.voltar} onClick={() => navigate(-1)}>
+                            {'< Voltar'}
+                        </button>
+            
+                        <section className={styles.container}>
+                            <h1 className={styles.titulo}>
+                                {prato.title}
+                            </h1>
+            
+                            <div className={styles.imagem}>
+                                <img src={prato.photo} alt={prato.title} />
+                            </div>
+            
+                            <div className={styles.conteudo}>
+                                <p className={styles.conteudo__descricao}>
+                                    {prato.description}
+                                </p>
+            
+                                <TagsPrato {...prato} />
+                            </div>
+                        </section>
+                    </>
+                } />
+            </Route>
+        </Routes>
     );
 }
