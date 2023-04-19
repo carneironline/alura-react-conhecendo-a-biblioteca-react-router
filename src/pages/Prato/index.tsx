@@ -1,15 +1,18 @@
 import styles from './Prato.module.scss'; 
 import cardapio from 'data/cardapio.json';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 export default function Prato() {
-    const { state } = useLocation();
-    const { prato } = state as { prato: typeof cardapio[0]};
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const prato = cardapio.find(item => item.id === Number(id));
+
+    if(!prato) return '';
 
     return (
         <>
-            <button className={styles.voltar}>
+            <button className={styles.voltar} onClick={() => navigate(-1)}>
                 {'< Voltar'}
             </button>
 
@@ -42,7 +45,7 @@ export default function Prato() {
                         <div className={styles.tags__qtdpessoas}>
                                 Serve {prato.serving} pessoa {prato.serving == 1 ? '' : 's'}
                         </div>
-                        
+
                         <div className={styles.tags__valor}>
                             R$ {prato.price.toFixed(2)}
                         </div>
