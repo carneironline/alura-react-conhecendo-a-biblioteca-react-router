@@ -1,26 +1,20 @@
 import styles from './Item.module.scss';
 import classNames from 'classnames';
 import TagsPrato from 'components/TagsPrato';
+import { useNavigate } from 'react-router-dom';
 import { IPrato } from 'types/Prato';
 
 export default function Item(props: IPrato) {
     const {
+        id,
         title, 
         description,
-        category,
-        size,
-        serving,
-        price,
         photo
     } = props;
-
-    const classCategories = classNames({
-        [styles.item__tipo]: true,
-        [styles[`item__tipo__${category.label.toLocaleLowerCase()}`]]: true
-    });
+    const navigate = useNavigate();
 
     return (
-        <div className={styles.item}>
+        <div className={styles.item} onClick={() => navigate(`/prato/${id}`)}>
             <div className={styles.item__imagem}><img src={photo} alt={title} /></div>
             <div className={styles.item__descricao}>
                 <div className={styles.item__titulo}>
